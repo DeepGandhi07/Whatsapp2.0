@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyAAM_o-DH_BUjnXfzXT0idsS8NalJ7DKqM",
   authDomain: "whatsapp-72488.firebaseapp.com",
@@ -12,9 +14,12 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+// const app = !firebase.app.length
+//   ? firebase.initializeApp(firebaseConfig)
+//   : firebase.app();
 const app = initializeApp(firebaseConfig);
-const db = app.firestore();
-const auth = app.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
+const db = getFirestore(app);
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
 
 export { db, auth, provider };
