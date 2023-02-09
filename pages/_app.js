@@ -12,11 +12,15 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (user) {
       const db = getFirestore();
-      setDoc(doc(db, "users", user.uid), {
-        email: user.email,
-        lastSeen: serverTimestamp(),
-        photoURL: user.photoURL,
-      });
+      setDoc(
+        doc(db, "users", user.uid),
+        {
+          email: user.email,
+          lastSeen: serverTimestamp(),
+          photoURL: user.photoURL,
+        },
+        { merge: true }
+      );
     }
   }, [user]);
   if (loading) return <Loading />;
