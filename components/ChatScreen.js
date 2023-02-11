@@ -101,7 +101,7 @@ function ChatScreen({ chat, messages }) {
     setInput("");
     ScrollToBottom();
   };
-  const recipient = recipientSnapshot?.docs?.[0].data();
+  const recipient = recipientSnapshot?.docs?.[0]?.data();
   const recipientEmail = getRecipientEmail(chat.users, user);
   return (
     <Container>
@@ -190,8 +190,11 @@ const EndOfMessage = styled.div``;
 const InputContainer = styled.form`
   display: flex;
   align-items: center;
-  position: sticky;
+  position: fixed;
   padding: 10px;
+  width: 70%;
+
+  /* width: 100%; */
   bottom: 0;
   background-color: white;
   z-index: 100;

@@ -75,15 +75,15 @@ export default sidebar;
 const Container = styled.div`
   flex: 0.45;
   border-right: 1px solid whitesmoke;
-  height: 100vh;
+  height: 97.5vh;
   min-width: 300px;
   max-width: 350px;
-  overflow-y: scroll;
-  ::-webkit-scrollbar {
+  /* overflow-y: scroll; */
+  /* ::-webkit-scrollbar {
     display: none;
-  }
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  } */
+  /* -ms-overflow-style: none;
+  scrollbar-width: none; */
 `;
 const Search = styled.div`
   display: flex;
@@ -96,6 +96,7 @@ const SearchInput = styled.input`
   border: none;
   height: 25px;
   flex: 1;
+  position: fixed;
 `;
 const SidebarButton = styled(Button)`
   width: 100%;
